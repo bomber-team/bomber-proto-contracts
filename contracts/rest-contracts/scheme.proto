@@ -1,0 +1,106 @@
+syntax = "proto3";
+
+package bomber.contracts;
+
+option java_package = "org.bomber.contracts";
+option go_package = "github.com/bomber-team/rest-bomber/contracts";
+
+message RestSchema {
+    string id = 1;
+    map<string, string> pathVariables = 2;
+    map<string, string> headers = 3;
+    repeated RequestParam request = 4;
+    repeated BodyParam body = 5;
+}
+
+message BodyParam {
+    string name = 1;
+    BodyParamType type = 2;
+    bool isGenerated = 3;
+    GeneratorType generatorType = 4;
+    GeneratorConfig config = 5;
+    oneof value {
+        SimpleValue simpleProperty = 6;
+        ListProperty listProperty = 7;
+        ObjectProperty properties = 8;
+    }
+}
+
+message SimpleValue {
+    oneof value {
+        string stringValue = 1;
+        int32 int32Value = 2;
+        int64 int64Value = 3;
+    }
+}
+
+message ListProperty {
+    repeated SimpleValue value = 1;
+}
+
+message ObjectProperty {
+    map<string, BodyParam> properties = 1;
+}
+
+enum BodyParamType {
+    SIMPLE_PROPERTY = 0;
+    LIST = 1;
+    OBJECT = 2;
+}
+
+message RequestParam {
+    string name = 1;
+    bool isGeneratorNeed = 2;
+    string value = 3;
+    GeneratorType generator = 5;
+    GeneratorConfig generatorConfig = 6;
+}
+
+enum GeneratorType {
+    WORD_GENERATOR = 0;
+    PASSWORD_GENERATOR = 1;
+    IP_GENERATOR = 2;
+    MAC_GENERATOR = 3;
+    REGEXP_GENERATOR = 4;
+}
+
+message GeneratorConfig {
+    oneof res {
+        IpGeneratorConfig ipGeneratorConfig = 1;
+        WordGeneratorConfig wordGeneratorConfig = 2;
+        PasswordGeneratorConfig passwordGeneratorConfig = 3;
+        RegexpConfig regexpConfig = 4;
+    }
+}
+
+message Section {
+    int32 min = 1;
+    int32 max = 2;
+}
+
+message IpGeneratorConfig {
+    Section firstSection = 1;
+    Section secondSection = 2;
+    Section thirdSection = 3;
+    Section fourthSection = 4;
+}
+
+message WordGeneratorConfig {
+    int32 minLetters = 1;
+    int32 maxLetters = 2;
+    Language language = 3;
+}
+
+message PasswordGeneratorConfig {
+    string alphabet = 1;
+    int32 amountChars = 2;
+}
+
+message RegexpConfig {
+    string pattern = 1;
+}
+
+enum Language {
+    RU = 0;
+    EN = 1;
+}
