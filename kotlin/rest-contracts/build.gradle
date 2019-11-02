@@ -1,0 +1,56 @@
+sourceSets {
+    main {
+        proto {
+            srcDir "../../contracts/rest-contracts"
+        }
+    }
+}
+
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier "sources"
+}
+
+publishing {
+    publications {
+        mavenPublication(MavenPublication) {
+            from components.java
+            groupId 'org.bomber.proto'
+            artifact sourceJar
+            version '1.0.0'
+            artifactId 'rest'
+//            pom.withXml {
+//                def root = asNode()
+//                root.appendNode('description', 'Provide a soft delete to mongo template')
+//                root.appendNode('name', 'spring-reactive-mongo-soft-delete')
+//                root.appendNode('url', 'https://github.com/skbkontur/spring-reactive-mongo-soft-delete')
+//                root.children().last() + pomConfig
+//            }
+        }
+    }
+}
+
+bintray {
+    user = System.getProperty('bintray.user')
+    key = System.getProperty('bintray.key')
+    publications = ['mavenPublication']
+    pkg {
+        name = "rest-proto"
+        repo = 'bomber'
+        userOrg = 'kostya05983'
+        licenses = ['GPL-3.0']
+        vcsUrl = 'https://github.com/bomber-team/bomber-proto-contracts.git'
+        version {
+            name = '1.0.0'
+            desc = '1.0.0'
+            released = new Date()
+        }
+    }
+}
+
+compileJava.dependsOn(processResources)
+
+artifacts {
+    archives sourceJar
+}
