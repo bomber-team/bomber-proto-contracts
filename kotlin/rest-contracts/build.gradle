@@ -1,3 +1,8 @@
+plugins {
+    id "com.jfrog.bintray" version "1.8.4"
+    id "maven-publish"
+}
+
 sourceSets {
     main {
         proto {
@@ -6,27 +11,30 @@ sourceSets {
     }
 }
 
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
 
-task sourceJar(type: Jar) {
-    from sourceSets.main.allJava
-    classifier "sources"
+javadoc.failOnError = false
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
 }
 
 publishing {
     publications {
         mavenPublication(MavenPublication) {
             from components.java
+            artifact sourcesJar {
+                classifier "sources"
+            }
+            artifact javadocJar {
+                classifier "javadoc"
+            }
             groupId 'org.bomber.proto'
-            artifact sourceJar
-            version '1.0.0'
             artifactId 'rest'
-//            pom.withXml {
-//                def root = asNode()
-//                root.appendNode('description', 'Provide a soft delete to mongo template')
-//                root.appendNode('name', 'spring-reactive-mongo-soft-delete')
-//                root.appendNode('url', 'https://github.com/skbkontur/spring-reactive-mongo-soft-delete')
-//                root.children().last() + pomConfig
-//            }
+            version '1.0.0'
         }
     }
 }
@@ -52,5 +60,6 @@ bintray {
 compileJava.dependsOn(processResources)
 
 artifacts {
-    archives sourceJar
+    archives sourcesJar
+    archives javadocJar
 }
