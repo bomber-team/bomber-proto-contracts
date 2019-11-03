@@ -1,3 +1,4 @@
+name: Publish jvm-proto
 on: [push]
 jobs:
   publish:
