@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
-      - uses: MrRamych/gradle-actions/openjdk-11@3.0
+      - uses: ./.github/actions/action
         with:
           args: generateProto
