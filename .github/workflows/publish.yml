@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
-      - uses: ./.github/actions/action
+      - uses: ./.github/actions/publish
         with:
           args: generateProto
