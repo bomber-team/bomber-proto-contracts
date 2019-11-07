@@ -1,15 +1,15 @@
 syntax = "proto3";
 
-package bomber.contracts;
+package bomber_team.contracts;
 
-import "script.proto";
-import "scheme.proto";
+import "contracts/script.proto";
+import "contracts/scheme.proto";
 
-option java_package = "org.bomber.contracts";
-option go_package = "github.com/bomber-team/rest-bomber/contracts";
+option java_package = "org.bomber_team.contracts";
+option go_package = "github.com/bomber_team/bomber_proto_contracts/golang/rest_contracts";
 
 // send from backend to our bomber as executed task
 message Task {
-    RestScriptPipeline pipeline = 1;
-    repeated RestSchema schemes = 2;
+    contracts.RestScriptPipeline pipeline = 1;
+    repeated contracts.RestSchema schemes = 2;
 }
