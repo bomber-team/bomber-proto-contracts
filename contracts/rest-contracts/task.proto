@@ -5,7 +5,7 @@ package bomber_team.contracts;
 import "contracts/script.proto";
 import "contracts/scheme.proto";
 
-option java_package = "org.bomber_team.contracts";
+option java_package = "org.bomber.team.contracts";
 option go_package = "github.com/bomber_team/bomber_proto_contracts/golang/rest_contracts";
 
 // send from backend to our bomber as executed task
