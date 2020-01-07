@@ -11,12 +11,10 @@ jobs:
         with:
           dir_with_proto_name: contracts
         env:
-          path_generated: github.com/bomber_team/bomber_proto_contracts/golang
+          path_generated: github.com/bomber_team/bomber_proto_contracts
       - name: Create local changes
         run: |
-          ls -la
-          cd github.com
-          ls -la
+          git add golang
       - name: Commit generated contracts
         run: |
           git config --local user.name "GitHub Action"
