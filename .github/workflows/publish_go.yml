@@ -1,19 +1,15 @@
-name: Build
-on: push
+name: Publish Golang contracts
+on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
       - name: checkout to master
         uses: actions/checkout@master
-      - uses: kubitre/proto_action@v0.3
+      - uses: kubitre/proto_action@v0.4
         name: generating golang contracts
         with:
           dir_with_proto_name: contracts
-        run: 
-          ls -la
-          cd contracts
-          ls -la
       - name: Create local changes
         run: |
           cd contracts
