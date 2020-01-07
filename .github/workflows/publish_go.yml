@@ -9,7 +9,11 @@ jobs:
       - uses: kubitre/proto_action@v0.3
         name: generating golang contracts
         with:
-            dir_with_proto_name: contracts
+          dir_with_proto_name: contracts
+        run: 
+          ls -la
+          cd contracts
+          ls -la
       - name: Create local changes
         run: |
           cd contracts
