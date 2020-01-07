@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: checkout to master
         uses: actions/checkout@master
-      - uses: kubitre/proto_action@v0.2
+      - uses: kubitre/proto_action@v0.3
         name: generating golang contracts
         with:
             dir_with_proto_name: contracts
