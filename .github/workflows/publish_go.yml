@@ -6,10 +6,11 @@ jobs:
     steps:
       - name: checkout to master
         uses: actions/checkout@master
-      - uses: kubitre/proto_action@v0.4
+      - uses: kubitre/proto_action@v0.5
         name: generating golang contracts
         with:
           dir_with_proto_name: contracts
+          path_generated: github.com/bomber_team/bomber_proto_contracts/golang
       - name: Create local changes
         run: |
           ls -la
