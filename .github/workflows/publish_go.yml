@@ -4,6 +4,11 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
+      - name: checkout to master
+        uses: actions/checkout@master
+      - name: checkout to current branch
+        run:
+          git checkout ${{github.ref}}
       - uses: kubitre/proto_action@v0.9
         name: generating golang contracts
         with:
