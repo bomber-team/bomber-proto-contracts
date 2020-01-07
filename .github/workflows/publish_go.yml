@@ -12,7 +12,10 @@ jobs:
             dir_with_proto_name: contracts
       - name: Create local changes
         run: |
-          ...
+          cd contracts
+          ls -la
+          cd github.com
+          ls -la
       - name: Commit generated contracts
         run: |
           git config --local user.name "GitHub Action"
