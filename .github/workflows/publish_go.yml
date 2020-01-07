@@ -14,9 +14,8 @@ jobs:
           path_generated: github.com/bomber_team/bomber_proto_contracts
       - name: Create local changes
         run: |
-          ls -la
-          cd github.com
-          ls -la
+          git add golang
+          git clean -f -d
       - name: Commit generated contracts
         run: |
           git config --local user.name "GitHub Action"
