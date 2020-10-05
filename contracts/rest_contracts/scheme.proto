@@ -58,10 +58,8 @@ message RequestParam {
 
 enum GeneratorType {
     WORD_GENERATOR = 0;
-    PASSWORD_GENERATOR = 1;
     IP_GENERATOR = 2;
     MAC_GENERATOR = 3;
-    REGEXP_GENERATOR = 4;
 }
 
 message GeneratorConfig {

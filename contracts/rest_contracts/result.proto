@@ -5,12 +5,12 @@ package contracts.rest_contracts;
 option java_package = "org.bomber.team.contracts";
 option go_package = "github.com/bomber_team/bomber_proto_contracts/golang/rest_contracts";
 
-// send from main server to one instance bomber
-message Configuration {
-  string serverAddress = 1;
+message BomberResult {
+  string formId = 1;
+  repeated Response responses = 2;
 }
 
-// send to main server on multicast
-message BomberConfig {
-  string bomberId = 1;
+message Response {
+  int32 code = 1;
+  int64 time = 2; // in ms
 }
