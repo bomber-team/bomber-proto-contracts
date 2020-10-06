@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package contracts.system;
+
+option java_package = "org.bomber.team.contracts";
+option go_package = "github.com/bomber_team/bomber_proto_contracts/golang/system";
+
+// send to main bomber server
+message TaskAction {
+  string taskId = 1;
+  ActionType action = 2;
+}
+
+enum ActionType {
+  START = 0;
+  STOP = 1;
+}

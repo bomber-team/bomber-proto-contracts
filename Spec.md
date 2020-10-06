@@ -2,9 +2,9 @@
 
 ## Топики на бомберах
 
-1. bombers.tasks.$id - где $id - идентификатор бомбера, выдаваемый системой . Данный маршрут принимает контракт: contracts/rest_contracts/task.proto
+1. bombers.tasks.$id - где $id - идентификатор бомбера, выдаваемый системой. На входе контракт: `contracts/rest_contracts/task.proto`
 
-2. bombers.trigger.$id - отправка команды на запуск/остановку задачи. в теле отправляем идентификатор задачи
+2. bombers.trigger.$id - отправка команды на запуск/остановку задачи. в теле отправляем идентификатор задачи. На входе контракт `contracts/system/task_action.proto`
 
 ## Топики на Bomber-Server
 
