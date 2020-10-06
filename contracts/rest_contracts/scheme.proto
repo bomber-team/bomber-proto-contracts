@@ -58,16 +58,15 @@ message RequestParam {
 
 enum GeneratorType {
     WORD_GENERATOR = 0;
-    IP_GENERATOR = 2;
-    MAC_GENERATOR = 3;
+    DIGIT_GENERATOR = 1;
+    REGEXP_GENERATOR = 2;
 }
 
 message GeneratorConfig {
     oneof res {
-        IpGeneratorConfig ipGeneratorConfig = 1;
-        WordGeneratorConfig wordGeneratorConfig = 2;
-        PasswordGeneratorConfig passwordGeneratorConfig = 3;
-        RegexpConfig regexpConfig = 4;
+        WordGeneratorConfig wordGeneratorConfig = 1;
+        RegexpConfig regexpConfig = 2;
+        DigitGeneratorConfig digitGeneratorConfig = 3;
     }
 }
 
@@ -76,26 +75,21 @@ message Section {
     int32 max = 2;
 }
 
-message IpGeneratorConfig {
-    Section firstSection = 1;
-    Section secondSection = 2;
-    Section thirdSection = 3;
-    Section fourthSection = 4;
-}
-
 message WordGeneratorConfig {
     int32 minLetters = 1;
     int32 maxLetters = 2;
     Language language = 3;
 }
 
-message PasswordGeneratorConfig {
-    string alphabet = 1;
-    int32 amountChars = 2;
-}
-
 message RegexpConfig {
     string pattern = 1;
+}
+
+message DigitGeneratorConfig {
+    int32 minLength = 1;
+    int32 maxLength = 2;
+    int32 startFrom = 3;
+    int32 endTo = 4;
 }
 
 enum Language {

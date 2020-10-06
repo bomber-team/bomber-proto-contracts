@@ -6,8 +6,9 @@ option java_package = "org.bomber.team.contracts";
 option go_package = "github.com/bomber_team/bomber_proto_contracts/golang/rest_contracts";
 
 message BomberResult {
-  string formId = 1;
-  repeated Response responses = 2;
+  string bomberIp = 1;
+  string formId = 2;
+  repeated Response responses = 3;
 }
 
 message Response {

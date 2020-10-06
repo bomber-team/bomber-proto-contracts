@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package contracts.system;
+
+option java_package = "org.bomber.team.contracts";
+option go_package = "github.com/bomber_team/bomber_proto_contracts/golang/system";
+
+// send to main bomber server
+message BomberStatusChange {
+  string bomberId = 1;
+  string ip = 2;
+  StatusBomber statusBomber = 3;
+}
+
+enum StatusBomber {
+  DOWN = 0;
+  UP = 1;
+  WORKING = 2;
+}

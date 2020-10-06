@@ -9,15 +9,5 @@ message RestScript {
   string schemeId = 1;
   string address = 2;
   string requestMethod = 3;
-  RestConfiguration configuration = 4;
-}
-
-message RestConfiguration {
-  int64 amountRequests = 1;
-  int64 timeoutForOneRequest = 2; // in seconds
-  int64 timeBetweenAttacks = 3;
-  bool notifyAfterCompleted = 4;
-  bool sendMetrics = 5;
-  bool logging = 6;
-  bool useGeneratedCache = 7;
+  int64 rps = 4;
 }
