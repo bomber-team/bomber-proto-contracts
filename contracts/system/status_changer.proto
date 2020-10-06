@@ -16,4 +16,5 @@ enum StatusBomber {
   DOWN = 0;
   UP = 1;
   WORKING = 2;
+  PREPARING_DATA = 3;
 }

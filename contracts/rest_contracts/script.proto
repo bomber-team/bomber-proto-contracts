@@ -9,5 +9,10 @@ message RestScript {
   string schemeId = 1;
   string address = 2;
   string requestMethod = 3;
-  int64 rps = 4;
+  ConfigurationScript config = 4;
+}
+
+message ConfigurationScript {
+  int64 rps = 1; // request per seconds 
+  int64 time = 2; // in s
 }
