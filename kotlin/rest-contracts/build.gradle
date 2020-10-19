@@ -43,6 +43,7 @@ bintray {
     user = System.getProperty('bintray.user')
     key = System.getProperty('bintray.key')
     publications = ['mavenPublication']
+    publish = true
     pkg {
         name = "rest-proto"
         repo = 'bomber'
