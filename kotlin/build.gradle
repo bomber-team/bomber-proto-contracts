@@ -1,15 +1,10 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.10'
-    }
+plugins {
+    id "com.google.protobuf" version "0.8.13"
+    id "java"
 }
 
-plugins {
-    id "com.google.protobuf" version "0.8.10" apply true
-    id "java"
+repositories {
+    mavenCentral()
 }
 
 version '1.0.0-SNAPSHOT'

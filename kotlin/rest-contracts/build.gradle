@@ -6,7 +6,7 @@ plugins {
 sourceSets {
     main {
         proto {
-            srcDir "../../contracts/rest-contracts"
+            srcDir "../../contracts/rest_contracts"
         }
     }
 }

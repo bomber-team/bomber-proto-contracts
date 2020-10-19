@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package contracts.rest_contracts;
 
-import "contracts/rest_contracts/script.proto";
-import "contracts/rest_contracts/scheme.proto";
+import "script.proto";
+import "scheme.proto";
 
 option java_package = "org.bomber.team.contracts";
 option go_package = "github.com/bomber_team/bomber_proto_contracts/golang/rest_contracts";
