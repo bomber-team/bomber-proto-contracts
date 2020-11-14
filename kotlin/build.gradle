@@ -1,5 +1,5 @@
 plugins {
-    id "com.google.protobuf" version "0.8.13"
+    id "com.google.protobuf" version "0.8.10"
     id "java"
 }
 
@@ -24,7 +24,7 @@ subprojects {
         // Configure the protoc executable
         protoc {
             // Download from repositories
-            artifact = 'com.google.protobuf:protoc:3.13.0'
+            artifact = 'com.google.protobuf:protoc:3.10.0'
         }
 
         generatedFilesBaseDir = "$projectDir/src"
