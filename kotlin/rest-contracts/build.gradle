@@ -34,7 +34,7 @@ publishing {
             }
             groupId 'org.bomber.proto'
             artifactId 'rest'
-            version '1.0.3'
+            version '1.0.4'
         }
     }
 }
