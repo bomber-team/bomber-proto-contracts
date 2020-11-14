@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package contracts.rest_contracts;
+package org.bomber.team.contracts;
 
 option java_package = "org.bomber.team.contracts";
 option go_package = "github.com/bomber_team/bomber_proto_contracts/golang/rest_contracts";

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package contracts.rest_contracts;
+package org.bomber.team.contracts;
 
 import "script.proto";
 import "scheme.proto";
@@ -11,6 +11,6 @@ option go_package = "github.com/bomber_team/bomber_proto_contracts/golang/rest_c
 // send from backend to our bomber as executed task
 message Task {
   string formId = 1;
-  contracts.rest_contracts.RestScript script = 2;
-  contracts.rest_contracts.RestSchema schema = 3;
+  org.bomber.team.contracts.RestScript script = 2;
+  org.bomber.team.contracts.RestSchema schema = 3;
 }
