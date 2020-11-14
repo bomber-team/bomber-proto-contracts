@@ -2,6 +2,7 @@ plugins {
     id "com.google.protobuf" version "0.8.10"
     id "java"
     id 'idea'
+    id 'org.jetbrains.kotlin.jvm' version "1.4.10" apply false
 }
 
 repositories {
@@ -13,6 +14,7 @@ version '1.0.0-SNAPSHOT'
 subprojects {
     apply plugin: 'java'
     apply plugin: 'com.google.protobuf'
+    apply plugin: 'org.jetbrains.kotlin.jvm'
 
     repositories {
         mavenCentral()
