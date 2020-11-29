@@ -8,10 +8,7 @@ option go_package = "github.com/bomber_team/bomber_proto_contracts/golang/rest_c
 message BomberResult {
   string bomberIp = 1;
   string formId = 2;
-  repeated Response responses = 3;
-}
-
-message Response {
-  int32 code = 1;
-  int64 time = 2; // in ms
+  int64 amountTimeoutsRequests = 3;
+  map<int32, int64> amountStatusesPerStatus = 4;
+  repeated int64 msPerRequest = 5;
 }
