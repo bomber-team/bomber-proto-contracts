@@ -86,8 +86,6 @@ message RegexpConfig {
 }
 
 message DigitGeneratorConfig {
-    int32 minLength = 1;
-    int32 maxLength = 2;
     int32 startFrom = 3;
     int32 endTo = 4;
 }
