@@ -11,5 +11,5 @@ message BomberResult {
   int64 amountTimeoutsRequests = 3;
   map<int32, int64> amountStatusesPerStatus = 4;
   repeated int64 msPerRequest = 5;
-  double elapsedTimeAttack = 6;
+  int64 elapsedTimeAttack = 6;
 }
